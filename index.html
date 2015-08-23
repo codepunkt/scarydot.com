@@ -1,0 +1,19 @@
+---
+layout: default
+---
+
+<div class="posts" role="main">
+	<div class="container">
+	  {% for post in site.posts %}
+	    <article class="post">
+
+	      <h1 class="post__title">
+	      	<a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a>
+	      </h1>
+	      <time class="post__date" datetime="{{ post.date | date: "%Y-%m-%d" }}">{{ post.date | date: "%-d %B %Y" }}</time>
+
+	      <div class="post__excerpt">{{ post.excerpt }}</div>
+	    </article>
+	  {% endfor %}
+	</div>
+</div>

@@ -1,0 +1,31 @@
+---
+layout: default
+---
+
+<div class="posts" role="main">
+	<div class="container">
+	  <div class="tag tag--end">
+	  	<div class="tag__title">All posts tagged with</div>
+	  	<div class="tag__wrapper">
+		  	<a href="{{ site.baseurl }}/tag/{{ page.tag }}" class="tag__tag">{{ page.tag }}</a>
+	  	</div>
+	  </div>
+
+    {% for post in site.posts %}
+    	{% if post.tags contains page.tag %}
+		    <article class="post">
+
+		    	<!-- <div class="disqus-comment-count" data-disqus-identifier="{{ post.id }}"></div> -->
+		      <h1 class="post__title">
+		      	<a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a>
+		      </h1>
+		      <time class="post__date" datetime="{{ post.date | date: "%Y-%m-%d" }}">{{ post.date | date: "%-d %B %Y" }}</time>
+
+		      <div class="post__excerpt">{{ post.excerpt }}</div>
+		    </article>
+	    {% endif %}
+    {% endfor %}
+	</div>
+</div>
+
+{% include disqus_comments.html %}

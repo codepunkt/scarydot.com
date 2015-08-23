@@ -1,0 +1,38 @@
+---
+layout: default
+---
+
+<article class="post" role="main">
+	<div class="container">
+	  <h1 class="post__title">{{ page.title }}</h1>
+	  <div class="post__info">
+	  	<time class="post__date" datetime="{{ post.date | date: "%Y-%m-%d" }}">{{ page.date | date: "%-d %B %Y" }}</time>
+	  	by <a href="http://twitter.com/gonsfx">Christoph Werner</a>
+	  </div>
+
+	  <div class="post__entry">
+	    {{ content }}
+	  </div>
+
+	  {% unless page.tags == empty %}
+		  <div class="tag">
+		  	<div class="tag__title">Tagged</div>
+		  	<div class="tag__wrapper">
+				  {% for tag in page.tags %}
+				  	<a href="{{ site.baseurl }}/tag/{{ tag }}" class="tag__tag">{{ tag }}</a>
+			    {% endfor %}
+		  	</div>
+		  </div>
+		{% endunless %}
+</article>
+
+{% if site.disqus %}
+	<script type="text/javascript">
+		var disqus_identifier = '{{ page.id }}';
+	</script>
+	<div class="comments">
+		<div class="container">
+			{% include disqus.html %}
+		</div>
+	</div>
+{% endif %}
