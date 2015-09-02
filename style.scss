@@ -39,7 +39,7 @@
 html {
   font-size: 125%;
   font-family: 'Libre Baskerville', sans-serif;
-  line-height: 1.5em;
+  line-height: 2rem;
   -webkit-text-size-adjust: 100%;
   -ms-text-size-adjust: 100%;
   text-rendering: optimizeLegibility;
@@ -93,14 +93,14 @@ html, body {
 
 .post {
   &__title {
-    font-style: italic;
+    font-family: Helvetica, Verdana, sans-serif;
     margin-bottom: 0;
   }
   &__info {
-    font-style: italic;
-  }
-  &__date {
+    font-family: Helvetica, Verdana, sans-serif;
+    font-size: .875rem;
     color: #c0c0c0;
+    margin-top: -.375rem;
   }
   &__excerpt {
     margin: .5rem 0 2rem 0;
@@ -178,7 +178,7 @@ body {
 
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: 'Libre Baskerville', sans-serif;
+  font-family: 'Libre Baskerville', Georgia, serif;
   color: $darkerGray;
   font-weight: 400;
 
@@ -192,8 +192,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h1 {
-  font-size: 1.4rem;
-  font-style: italic;
+  font-size: 1.5rem;
   a {
     color: inherit;
   }
@@ -332,7 +331,7 @@ img {
   }
 
   &__body {
-    fill: #bada55;
+    fill: $primary;
   }
   &__body, &__face {
     animation: hover 3s linear 0s infinite;
@@ -344,6 +343,12 @@ img {
   &__shadow {
     fill: #e9edf2;
     animation: scale 3s linear 0s infinite;
+    animation-play-state: paused;
+  }
+  &__font {
+    stroke-dasharray: 1000;
+    stroke-dashoffset: 1000;
+    // animation: dash 5s linear forwards;
     animation-play-state: paused;
   }
   &:hover {
@@ -358,7 +363,7 @@ img {
 .post {
   blockquote {
     margin: 1.8em .8em;
-    border-left: 5px solid $blue;
+    border-left: 5px solid #bada55;
     padding: 0.1em 1em;
     color: $gray;
     font-style: italic;
